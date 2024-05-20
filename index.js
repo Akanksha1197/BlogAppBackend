@@ -19,7 +19,7 @@ mongoose.connect('mongodb://127.0.0.1:27017/akki').then(()=>{
 })
 
 app.use(cors({
-  origin: 'https://blogappfrontend-i1v5-mfd0k59ul-akankshas-projects-76b3734f.vercel.app'
+  origin: 'https://blogappfrontend1yeg-g7dqjpsfx-akankshas-projects-76b3734f.vercel.app/'
 }));
 
 app.use(express.json())
