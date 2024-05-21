@@ -18,9 +18,23 @@ mongoose.connect('mongodb://127.0.0.1:27017/akki').then(()=>{
 
 })
 
+const allowedOrigins = [
+  'https://blogappfrontend1yeg-jvurfa5bu-akankshas-projects-76b3734f.vercel.app',
+  'https://blogappfrontend1yeg-2ggiau7o2-akankshas-projects-76b3734f.vercel.app'
+];
+
 app.use(cors({
-  origin: 'https://blogappfrontend1yeg-jvurfa5bu-akankshas-projects-76b3734f.vercel.app'
+  origin: (origin, callback) => {
+    if (allowedOrigins.includes(origin) || !origin) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true
 }));
+
+
 
 app.use(express.json())
 app.use('/api',userRouter)
