@@ -19,7 +19,7 @@ mongoose.connect('mongodb://127.0.0.1:27017/akki').then(()=>{
 })
 
 app.use(cors({
-  origin: (origin, callback) => {
+ Access-Control-Allow-Origin: (Access-Control-Allow-Origin, callback) => {
     if (allowedOrigins.includes(origin) || !origin) {
       callback(null, true);
     } else {
